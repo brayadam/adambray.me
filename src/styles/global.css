@@ -4,6 +4,12 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
 */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
@@ -219,4 +225,8 @@ article p + ol {
 	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: inset(50%);
 	white-space: nowrap;
+}
+
+body {
+  overflow-x: hidden;
 }
