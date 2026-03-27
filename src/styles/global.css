@@ -49,10 +49,9 @@ body {
 }
 
 main {
-	width: 720px;
-	max-width: calc(100% - 2rem);
-	margin: 0 auto;
-	padding: 3rem 1rem;
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 h1,
