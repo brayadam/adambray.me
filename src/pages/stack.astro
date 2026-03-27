@@ -1,0 +1,222 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead
+      title={`Stack | ${SITE_TITLE}`}
+      description="A high-level overview of the hardware, services, networking, storage and backup strategy behind my homelab."
+    />
+  </head>
+  <body>
+    <Header />
+
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Current setup</p>
+        <h1>Stack</h1>
+        <p class="intro">
+          This is the current state of my homelab. It is built around reliability,
+          separation, and real-world use rather than just looking clever on paper.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Overview</h2>
+          <p>
+            Proxmox sits at the centre of everything. I use a mix of VMs and LXCs,
+            segment the network properly, and keep backups local and off-site.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Hardware</h2>
+          <ul>
+            <li>i7-11700 Proxmox host</li>
+            <li>64GB RAM</li>
+            <li>NVMe storage for VMs and fast workloads</li>
+            <li>HDD-based ZFS storage for bulk media and general data</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Core platform</h2>
+          <p>
+            Proxmox VE is the foundation. I use VMs where isolation matters more,
+            and LXCs where a lighter footprint makes sense.
+          </p>
+          <p>
+            Docker runs inside a dedicated VM rather than directly on the host.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Networking</h2>
+          <ul>
+            <li>OPNsense router</li>
+            <li>Separate VLANs for admin, family, IoT and servers</li>
+            <li>Default deny between networks</li>
+            <li>Specific allow rules only where needed</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Services</h2>
+
+          <h3>Media</h3>
+          <p>Jellyfin, Radarr, Sonarr, Prowlarr, qBittorrent</p>
+
+          <h3>Core</h3>
+          <p>Nextcloud, Authentik</p>
+
+          <h3>Infrastructure</h3>
+          <p>Pi-hole, Unbound, reverse proxy, backup tooling</p>
+        </article>
+
+        <article class="card">
+          <h2>Storage strategy</h2>
+          <p>
+            I separate storage by importance and purpose rather than throwing
+            everything into one pool.
+          </p>
+          <ul>
+            <li><strong>/tank</strong> for bulk and replaceable data</li>
+            <li><strong>/flash</strong> for fast VM and database storage</li>
+            <li><strong>/vault</strong> for critical data that matters most</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Backups</h2>
+          <p>
+            Backups run through Proxmox Backup Server, with important data copied
+            off-site as well.
+          </p>
+          <p>
+            I care less about pretty backup dashboards and more about whether a
+            restore actually works.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Principles</h2>
+          <ul>
+            <li>Build for real life</li>
+            <li>Keep things understandable</li>
+            <li>Separate systems properly</li>
+            <li>Assume things will fail</li>
+            <li>Test backups</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  .hero {
+    max-width: 760px;
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.65;
+  }
+
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .intro {
+    margin: 0;
+    max-width: 60ch;
+    font-size: 1.15rem;
+    line-height: 1.75;
+    opacity: 0.9;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.18);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(128, 128, 128, 0.3);
+  }
+
+  .card h2 {
+    margin: 0 0 0.9rem;
+    font-size: 1.2rem;
+  }
+
+  .card h3 {
+    margin: 1rem 0 0.35rem;
+    font-size: 0.95rem;
+    opacity: 0.75;
+  }
+
+  .card p,
+  .card li {
+    line-height: 1.7;
+  }
+
+  .card p {
+    margin: 0 0 0.9rem;
+  }
+
+  .card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .card ul {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .card li + li {
+    margin-top: 0.45rem;
+  }
+
+  @media (max-width: 800px) {
+    .page {
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .intro {
+      font-size: 1.05rem;
+    }
+  }
+</style>

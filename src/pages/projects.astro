@@ -1,0 +1,208 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead
+      title={`Projects | ${SITE_TITLE}`}
+      description="A collection of the projects, experiments and ideas I’m building alongside my homelab."
+    />
+  </head>
+  <body>
+    <Header />
+
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">What I'm building</p>
+        <h1>Projects</h1>
+        <p class="intro">
+          These are the projects, experiments and ideas I’m working on outside of the
+          day-to-day running of my homelab. Some are active, some are early, and some
+          are still taking shape.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Retro Refresh</h2>
+          <p>
+            A project focused on refurbishing and upgrading retro tech, starting with
+            iPods and expanding into other devices over time.
+          </p>
+          <ul>
+            <li>iPod Classic flash and battery upgrades</li>
+            <li>Testing parts before selling anything</li>
+            <li>Building a repeatable and reliable workflow</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Fitrics</h2>
+          <p>
+            A project to analyse fitness data from FIT files and turn it into something
+            more useful and easier to understand.
+          </p>
+          <ul>
+            <li>Processing activity data</li>
+            <li>Exploring visualisations and trends</li>
+            <li>Building something I would genuinely use myself</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>This site</h2>
+          <p>
+            AdamBray.me is a project in its own right. It’s where I document what I’m
+            building, what’s working, and what I’ve learned along the way.
+          </p>
+          <ul>
+            <li>Writing about my homelab and systems</li>
+            <li>Creating a clear public home for projects</li>
+            <li>Keeping things simple and personal</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Future ideas</h2>
+          <p>
+            Not everything needs to be fully formed before it earns a place here.
+            These are the areas I want to explore next.
+          </p>
+          <ul>
+            <li>Small internal tools for my own use</li>
+            <li>Better backup and workflow tooling</li>
+            <li>Automations that solve real problems at home</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="philosophy">
+        <h2>How I think about projects</h2>
+        <p>
+          I’m not interested in building things just for the sake of it. The projects
+          here are all tied to something practical, something I want to improve, or
+          something I want to understand properly.
+        </p>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  .hero {
+    max-width: 760px;
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.65;
+  }
+
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .intro {
+    margin: 0;
+    max-width: 60ch;
+    font-size: 1.15rem;
+    line-height: 1.75;
+    opacity: 0.9;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.18);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(128, 128, 128, 0.3);
+  }
+
+  .card h2 {
+    margin: 0 0 0.9rem;
+    font-size: 1.2rem;
+  }
+
+  .card p,
+  .card li {
+    line-height: 1.7;
+  }
+
+  .card p {
+    margin: 0 0 0.9rem;
+  }
+
+  .card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .card ul {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .card li + li {
+    margin-top: 0.45rem;
+  }
+
+  .philosophy {
+    max-width: 760px;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.15);
+  }
+
+  .philosophy h2 {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+  }
+
+  .philosophy p {
+    margin: 0;
+    line-height: 1.75;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 800px) {
+    .page {
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .intro {
+      font-size: 1.05rem;
+    }
+  }
+</style>
