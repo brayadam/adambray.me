@@ -2,7 +2,7 @@
 title: "Why I’m Building My Own Infrastructure"
 description: "Why I'm building my own infrastructure at home - replacing big tech services with something reliable enough for real life."
 pubDate: 2026-02-09
-heroImage: "/images/building-own-infrastructure-hero.png"
+heroImage: "/images/why-infrastructure.png"
 draft: false
 tags: ["infrastructure", "homelab", "self-hosting", "design", "foundations"]
 ---

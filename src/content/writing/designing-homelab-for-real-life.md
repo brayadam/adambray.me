@@ -2,7 +2,7 @@
 title: "Designing My Homelab for Real Life"
 description: "How I designed my homelab to run real-life infrastructure — with network segmentation, Proxmox, DNS redundancy, and layered backups."
 pubDate: 2026-02-12
-heroImage: "/images/homelab-for-real-life-hero.png"
+heroImage: "/images/designing-homelab.png"
 draft: false
 tags: ["infrastructure", "homelab", "self-hosting", "network", "proxmox", "backup"]
 ---
